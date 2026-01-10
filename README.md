@@ -51,27 +51,8 @@ pip install -r requirements.txt
 dbt run --project-dir dbt --profiles-dir dbt
 ```
 
-4) (Optional) Run tests:
+4) Dashboard for gold layer insights
 
-```bash
-dbt test --project-dir dbt --profiles-dir dbt
-```
-
-## Airflow
-- DAG: `airflow/dags/dbt_medallion_dag.py`
-- Requires `dbt` in the Airflow worker environment.
-- The DAG runs bronze -> silver -> gold daily.
-
-To run Airflow in the same venv, install it using the official constraints file for your Python version:
-
-```bash
-PYTHON_VERSION=$(python -c 'import sys; print(f\"{sys.version_info.major}.{sys.version_info.minor}\")')
-AIRFLOW_VERSION=2.9.3
-pip install \"apache-airflow==${AIRFLOW_VERSION}\" \\
-  --constraint \"https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt\"
-```
-
-## Dashboard (gold insights)
 Run the Streamlit dashboard after `dbt run` has created the gold tables:
 
 ```bash
