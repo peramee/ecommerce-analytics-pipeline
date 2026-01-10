@@ -17,9 +17,9 @@ Data used as input: a free online retail transactions dataset from Kaggle (https
 
 ## Local run (venv + dbt)
 
-### Option A:
+### Option A (MacOS/Linux only):
 
-Use the shell file that runs the Python environment setup, runs the dbt transformations, and opens the streamlit dashboard of the results:
+Use the shell file that runs the Python environment setup, runs the dbt transformations, and opens the streamlit dashboard of the results (run this in terminal from the repo root):
 
 ```bash
 chmod +x run_local.sh
@@ -30,9 +30,7 @@ chmod +x run_local.sh
 
 Setup the environment manually:
 
-1) Create and activate a virtual environment:
-
-dbt-duckdb currently supports Python 3.10–3.12. If your system default is newer, use `python3.12` or `python3.11` for the venv.
+1) Create and activate a Python virtual environment (dbt-duckdb currently supports only Python 3.10–3.12):
 
 ```bash
 python3.12 -m venv .venv
@@ -45,7 +43,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3) Run dbt from the repo root:
+3) Run dbt:
 
 ```bash
 dbt run --project-dir dbt --profiles-dir dbt
