@@ -1,8 +1,8 @@
-name: ecommerce_data_platform
+name: ecommerce_analytics_pipeline
 version: 1.0.0
 config-version: 2
 
-profile: ecommerce_data_platform
+profile: ecommerce_analytics_pipeline
 
 model-paths:
   - models
