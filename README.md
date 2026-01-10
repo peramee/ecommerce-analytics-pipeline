@@ -19,7 +19,7 @@ Data used as input: a free online retail transactions dataset from Kaggle (https
 
 ### Option A:
 
-Use the shell file that runs the Python environment setup, runs the transformations (in DBT only), and opens the streamlit dashboard of the results:
+Use the shell file that runs the Python environment setup, runs the dbt transformations, and opens the streamlit dashboard of the results:
 
 ```bash
 chmod +x run_local.sh
