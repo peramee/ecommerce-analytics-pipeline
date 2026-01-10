@@ -51,9 +51,7 @@ pip install -r requirements.txt
 dbt run --project-dir dbt --profiles-dir dbt
 ```
 
-4) Dashboard for gold layer insights
-
-Run the Streamlit dashboard after `dbt run` has created the gold tables:
+4) Run the Streamlit dashboard for gold layer insights
 
 ```bash
 streamlit run dashboard/app.py
