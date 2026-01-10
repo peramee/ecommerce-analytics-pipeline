@@ -14,10 +14,12 @@ Medallion-style data platform for Online Retail transactions using Airflow and d
 - Gold: analytics-ready aggregates (`gold_sales_daily`, `gold_customer_metrics`).
 
 ## Local run (venv + dbt)
+dbt-duckdb currently supports Python 3.10–3.12. If your system default is newer, use `python3.12` or `python3.11` for the venv.
+
 1) Create and activate a virtual environment:
 
 ```bash
-python3 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 ```
 
