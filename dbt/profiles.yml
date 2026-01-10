@@ -1,4 +1,4 @@
-ecommerce_data_platform:
+ecommerce_analytics_pipeline:
   target: dev
   outputs:
     dev:
