@@ -13,20 +13,27 @@ Medallion-style data platform for Online Retail transactions using Airflow and d
 - Silver: cleaned and typed rows with derived metrics (`silver_online_retail`).
 - Gold: analytics-ready aggregates (`gold_sales_daily`, `gold_customer_metrics`).
 
-## Local run (dbt)
-1) Install dbt + duckdb adapter:
+## Local run (venv + dbt)
+1) Create and activate a virtual environment:
 
 ```bash
-pip install dbt-duckdb
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
-2) Run dbt from the repo root:
+2) Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+3) Run dbt from the repo root:
 
 ```bash
 dbt run --project-dir dbt --profiles-dir dbt
 ```
 
-3) (Optional) Run tests:
+4) (Optional) Run tests:
 
 ```bash
 dbt test --project-dir dbt --profiles-dir dbt
@@ -36,3 +43,12 @@ dbt test --project-dir dbt --profiles-dir dbt
 - DAG: `airflow/dags/dbt_medallion_dag.py`
 - Requires `dbt` in the Airflow worker environment.
 - The DAG runs bronze -> silver -> gold daily.
+
+To run Airflow in the same venv, install it using the official constraints file for your Python version:
+
+```bash
+PYTHON_VERSION=$(python -c 'import sys; print(f\"{sys.version_info.major}.{sys.version_info.minor}\")')
+AIRFLOW_VERSION=2.9.3
+pip install \"apache-airflow==${AIRFLOW_VERSION}\" \\
+  --constraint \"https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt\"
+```
