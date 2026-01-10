@@ -21,7 +21,7 @@ clean-targets:
   - dbt_packages
 
 vars:
-  raw_data_path: "../data sources/Online Retail.csv"
+  raw_data_path: "./data-sources/online-retail.csv"
 
 models:
   ecommerce_data_platform:
