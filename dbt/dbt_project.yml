@@ -24,7 +24,7 @@ vars:
   raw_data_path: "./data-sources/online-retail.csv"
 
 models:
-  ecommerce_data_platform:
+  ecommerce_analytics_pipeline:
     bronze:
       +materialized: table
     silver:

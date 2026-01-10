@@ -25,6 +25,7 @@ source "${VENV_DIR}/bin/activate"
 python -m pip install --upgrade pip
 python -m pip install -r "${ROOT_DIR}/requirements.txt"
 
+cd "${ROOT_DIR}"
 dbt run --project-dir "${ROOT_DIR}/dbt" --profiles-dir "${ROOT_DIR}/dbt"
 
 exec streamlit run "${ROOT_DIR}/dashboard/app.py"
