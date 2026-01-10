@@ -1,0 +1,33 @@
+name: ecommerce_data_platform
+version: 1.0.0
+config-version: 2
+
+profile: ecommerce_data_platform
+
+model-paths:
+  - models
+seed-paths:
+  - seeds
+
+analysis-paths:
+  - analyses
+macro-paths:
+  - macros
+snapshot-paths:
+  - snapshots
+
+clean-targets:
+  - target
+  - dbt_packages
+
+vars:
+  raw_data_path: "../data sources/Online Retail.csv"
+
+models:
+  ecommerce_data_platform:
+    bronze:
+      +materialized: table
+    silver:
+      +materialized: table
+    gold:
+      +materialized: table
