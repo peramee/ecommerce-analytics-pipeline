@@ -3,7 +3,7 @@
 Medallion-style data platform for Online Retail transactions using Airflow and dbt.
 
 ## Structure
-- `data sources/Online Retail.csv`: raw input dataset.
+- `data-sources/online-retail.csv`: raw input dataset.
 - `dbt/`: transformation project (bronze, silver, gold).
 - `airflow/dags/`: DAG that orchestrates the dbt layers.
 - `warehouse/`: DuckDB database output.
@@ -53,4 +53,11 @@ PYTHON_VERSION=$(python -c 'import sys; print(f\"{sys.version_info.major}.{sys.v
 AIRFLOW_VERSION=2.9.3
 pip install \"apache-airflow==${AIRFLOW_VERSION}\" \\
   --constraint \"https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt\"
+```
+
+## Dashboard (gold insights)
+Run the Streamlit dashboard after `dbt run` has created the gold tables:
+
+```bash
+streamlit run dashboard/app.py
 ```
