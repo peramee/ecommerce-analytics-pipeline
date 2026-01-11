@@ -15,6 +15,13 @@ Data used as input: a free online retail transactions dataset from Kaggle (https
 - Silver: cleaned and typed rows with derived metrics (`silver_online_retail`).
 - Gold: analytics-ready aggregates (`gold_sales_daily`, `gold_customer_metrics`).
 
+## Dashboard insights (gold layer)
+The Streamlit dashboard highlights:
+- Daily KPIs over a selected date range: total orders, total line items, gross revenue, value of returns, and net revenue.
+- Daily net revenue trend (line chart).
+- Daily order volume and line item counts (bar chart).
+- Top customers (all time) table ranked by net revenue, including first/last purchase timestamps, order count, gross/net revenue, and number of countries shopped.
+
 ## Local run (venv + dbt)
 
 ### Option A (MacOS/Linux only):
@@ -32,9 +39,18 @@ Setup the environment manually:
 
 1) Create and activate a Python virtual environment (dbt-duckdb currently supports only Python 3.10–3.12):
 
+MacOS/Linux:
+
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
+```
+
+Windows:
+
+```cmd
+python3.12 -m venv .venv
+.venv/bin/Activate.ps1
 ```
 
 2) Install dependencies:
