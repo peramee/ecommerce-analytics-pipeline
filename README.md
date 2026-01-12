@@ -1,12 +1,12 @@
 # Ecommerce Analytics Pipeline
 
-A medallion-style analytics data pipeline demo project for ecommerce transactions using dbt and DuckDB, with a streamlit dashboard for final gold layer insights.
+A medallion-style analytics data pipeline local demo project for ecommerce transactions using dbt and DuckDB, with a streamlit dashboard for final gold layer insights.
 
 Data used as input: a free online retail transactions dataset from Kaggle (https://www.kaggle.com/datasets/abhishekrp1517/online-retail-transactions-dataset).
 
 ## Structure
 - `data-sources/online-retail.csv`: raw input dataset.
-- `dbt/`: transformation project (bronze, silver, gold).
+- `dbt/`: dbt transformation project (bronze, silver, gold).
 - `warehouse/`: DuckDB database output.
 - `dashboard/`: Streamlit dashboard for gold layer results.
 
@@ -24,7 +24,7 @@ The Streamlit dashboard highlights:
 
 ## Local run (venv + dbt)
 
-### Option A (MacOS/Linux only):
+### Option A:
 
 Use the shell file that runs the Python environment setup, runs the dbt transformations, and opens the streamlit dashboard of the results (run this in terminal from the repo root):
 
@@ -39,18 +39,9 @@ Setup the environment manually:
 
 1) Create and activate a Python virtual environment (dbt-duckdb currently supports only Python 3.10–3.12):
 
-MacOS/Linux:
-
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
-```
-
-Windows:
-
-```cmd
-python3.12 -m venv .venv
-.venv/bin/Activate.ps1
 ```
 
 2) Install dependencies:
